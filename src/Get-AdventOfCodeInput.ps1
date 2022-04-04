@@ -30,7 +30,7 @@ function Get-AdventOfCodeInput {
         [Parameter(Mandatory = $true)]
         [ArgumentCompleter({
                 param($Command, $Parameter, $WordToComplete, $CommandAst, $FakeBoundParams)
-                $years | Where-Object { $_ -like "$WordToComplete*" } |
+                $AdventOfCodeConfig.Years | Where-Object { $_ -like "$WordToComplete*" } |
                 Foreach-Object { $_ }
             })]
         [ValidateScript({
@@ -41,7 +41,7 @@ function Get-AdventOfCodeInput {
         [Parameter(Mandatory = $true)]
         [ArgumentCompleter({
                 param($Command, $Parameter, $WordToComplete, $CommandAst, $FakeBoundParams)
-                $days | Where-Object { $_ -like "$WordToComplete*" } |
+                $AdventOfCodeConfig.Days | Where-Object { $_ -like "$WordToComplete*" } |
                 Foreach-Object { $_ }
             })]
         [ValidateScript({
