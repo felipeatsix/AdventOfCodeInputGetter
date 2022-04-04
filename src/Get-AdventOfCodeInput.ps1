@@ -16,8 +16,8 @@
     Provides the challenge day.
 
 .EXAMPLE
-    $input = Get-AdventOfCodeInput -SessionVariable $session -Year 2015 -Day 1
-    This command will return Advent of Code challenge from year 2015 day 1 and save it in the $input variable.
+    $result = Get-AdventOfCodeInput -SessionVariable $session -Year 2015 -Day 1
+    This command will return Advent of Code challenge from year 2015 day 1 and save it in the $result variable.
 #>
 function Get-AdventOfCodeInput {
     param (
@@ -34,7 +34,10 @@ function Get-AdventOfCodeInput {
                 Foreach-Object { $_ }
             })]
         [ValidateScript({
-                $_ -in $AdventOfCodeConfig.Years
+                if (!($_ -in $AdventOfCodeConfig.Years)) {
+                    throw [Management.Automation.ValidationMetadataException]::new("$_ is not a valid value, please choose between 2015 and 2021")
+                }
+                else { return $true }
             })]
         [string]$Year,
 
@@ -45,11 +48,14 @@ function Get-AdventOfCodeInput {
                 Foreach-Object { $_ }
             })]
         [ValidateScript({
-                $_ -in $AdventOfCodeConfig.Days
+                if (!($_ -in $AdventOfCodeConfig.Days)) {
+                    throw [Management.Automation.ValidationMetadataException]::new("$_ is not a valid value, please choose between 1 and 25")
+                }
+                else { return $true }
             })]
         [string]$Day
     )
     $url = "https://adventofcode.com/{0}/day/{1}/input" -f $Year, $Day
-    $output = Invoke-WebRequest -Uri $url -WebSession $SessionVariable | Select-Object -ExpandProperty Content
-    return $output
+    $response = Invoke-WebRequest -Uri $url -WebSession $SessionVariable | Select-Object -ExpandProperty Content
+    return $response
 }
