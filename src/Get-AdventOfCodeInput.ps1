@@ -34,7 +34,7 @@ function Get-AdventOfCodeInput {
                 Foreach-Object { $_ }
             })]
         [ValidateScript({
-                $_ -in $years
+                $_ -in $AdventOfCodeConfig.Years
             })]
         [string]$Year,
 
@@ -45,7 +45,7 @@ function Get-AdventOfCodeInput {
                 Foreach-Object { $_ }
             })]
         [ValidateScript({
-                $_ -in $days
+                $_ -in $AdventOfCodeConfig.Days
             })]
         [string]$Day
     )
