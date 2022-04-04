@@ -17,7 +17,7 @@
 
 .EXAMPLE
     $result = Get-AdventOfCodeInput -SessionVariable $session -Year 2015 -Day 1
-    This command will return Advent of Code challenge from year 2015 day 1 and save it in the $result variable.
+    This command will return Advent of Code challenge input from year 2015 day 1 and save it in the $result variable.
 #>
 function Get-AdventOfCodeInput {
     param (
