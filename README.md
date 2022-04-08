@@ -12,7 +12,3 @@ $inputData = Get-AdventOfCodeInput -SessionVariable $session -Year 2015 -Day 1
 4. [Optional] Run the command Get-Help Get-AdventOfCodeInput for more information on how to generate the web session object.
 5. Run Get-AdventOfCodeInput function.
 ```
-# See examples by running the command bellow
-```Powershell
-Get-Help Get-AdventOfCodeInput -Examples
-```
