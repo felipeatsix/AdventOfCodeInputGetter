@@ -12,3 +12,10 @@ A simple way for getting Advent of Code challenges input with Powershell
 ```Powershell
 Get-Help Get-AdventOfCodeInput -Examples
 ```
+# Usage
+```Powershell
+# Session variable should be loaded to the memory in every new Powershell instance.
+# Use $inputData variable as you will to proceed with your challenge solution.
+# Attention: Do not name your variable as "$input" because this is a Powershell reserved automatic variable.
+$inputData = Get-AdventOfCodeInput -SessionVariable $session -Year 2015 -Day 1
+```
