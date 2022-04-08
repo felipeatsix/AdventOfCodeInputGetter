@@ -14,6 +14,5 @@ Get-Help Get-AdventOfCodeInput -Examples
 ```
 # Usage
 ```Powershell
-# Session variable should be loaded to the memory in every new Powershell instance.
 $inputData = Get-AdventOfCodeInput -SessionVariable $session -Year 2015 -Day 1
 ```
